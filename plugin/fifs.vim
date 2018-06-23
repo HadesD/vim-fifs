@@ -4,5 +4,7 @@ end
 
 let g:loaded_fifs = 1
 
-command! Fifs call fifs#doFind('grep -inr . -e', <q-args>)
+command! -bang -nargs=* -complete=file Fifs call fifs#doFind('grep -inr . -e', <q-args>)
+
+nnoremap <silent> <C-F> :Fifs<Space>
 

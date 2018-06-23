@@ -1,4 +1,8 @@
 function! fifs#doFind(cmd, pattern)
-  echom pattern
+  if empty(a:pattern)
+    echo 'No pattern found.'
+    return
+  endif
+  echo 'Searching pattern: ' . a:pattern
 endfunction
 
