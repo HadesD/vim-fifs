@@ -1,0 +1,12 @@
+*fifs.txt* Find in files with Vim
+
+==============================================================================
+Author: Dark.Hades <dark.hades.1102[at]gmail.com>                *fifs-author*
+License: Same terms as Vim itself (see |license|)
+
+==============================================================================
+INTRODUCTION                                                            *fifs*
+
+This plugin is wrapper of some module find text in files likes *grep*, *ack*,
+*ag*,...
+
