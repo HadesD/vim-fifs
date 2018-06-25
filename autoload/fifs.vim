@@ -7,6 +7,7 @@ function! fifs#doFind(cmd, pattern)
     echo "\nPattern is empty."
     return
   endif
-  echo "\nSearching pattern: " . l:pattern
+  execute printf('AsyncRun %s %s', a:cmd, l:pattern)
+  execute 'botright copen'
 endfunction
 
