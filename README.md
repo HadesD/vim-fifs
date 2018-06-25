@@ -8,6 +8,12 @@ and run search process in async mode.
 (Currently it only supported grep)
 You can stop that process while it is running by `q` or `<Esc>`
 
+## Demo
+
+https://asciinema.org/a/Ltw5bRmkbbFk19tD0uYaglymg
+
+![Demo vim-fifs](https://i.imgur.com/tG4d9eV.gif)
+
 ## Requirements
 
 - AsyncRun https://github.com/skywind3000/asyncrun.vim
