@@ -8,11 +8,11 @@ function! fifs#doFind(cmd, pattern)
     return
   endif
 
-  " if has('g:asyncrun_support')
+  if v:version >= 800
     execute printf('AsyncRun %s "%s"', a:cmd, l:pattern)
-  " else
-    " execute printf('Dispatch %s "%s"', a:cmd, l:pattern)
-  " endif
+  else
+    execute printf('Dispatch %s "%s"', a:cmd, l:pattern)
+  endif
   execute 'botright copen'
 
   " Mapping
