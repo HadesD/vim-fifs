@@ -17,7 +17,9 @@ https://asciinema.org/a/Ltw5bRmkbbFk19tD0uYaglymg
 ## Requirements
 
 - AsyncRun https://github.com/skywind3000/asyncrun.vim
+
 OR
+
 - Dispatch https://github.com/tpope/vim-dispatch (Will be supported)
 
 ## Install
