@@ -3,6 +3,16 @@ if exists('g:loaded_fifs')
 end
 let g:loaded_fifs = 1
 
+if !has('g:fifs_cmd')
+  if executable('ack')
+    let g:fifs_cmd = 'ack --column --nocolor'
+  elseif executable('ag')
+    let g:fifs_cmd = 'ag --nogroup --column --line-numbers'
+  elseif executable('grep')
+    let g:fifs_cmd = 'grep --color=never -inr . -e'
+  endif
+endif
+
 let g:fifs_mappings = {
       \ '<Esc>': ':AsyncStop<CR>:cclose<CR>',
       \ 'q': ':AsyncStop<CR>',
@@ -14,7 +24,7 @@ let g:fifs_mappings = {
       \ 'I': '<C-W><CR>:wincmd b<CR>',
       \ }
 
-command! -bang -nargs=* -complete=file Fifs call fifs#doFind('grep -inr . -e', <q-args>)
+command! -bang -nargs=* -complete=file Fifs call fifs#doFind(g:fifs_cmd, <q-args>)
 
 nnoremap <silent> <C-F> :Fifs<CR>
 

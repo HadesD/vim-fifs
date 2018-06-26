@@ -9,7 +9,7 @@ function! fifs#doFind(cmd, pattern)
   endif
 
   " if has('g:asyncrun_support')
-    execute printf('AsyncRun %s "%s" --color=never', a:cmd, l:pattern)
+    execute printf('AsyncRun %s "%s"', a:cmd, l:pattern)
   " else
     " execute printf('Dispatch %s "%s"', a:cmd, l:pattern)
   " endif
