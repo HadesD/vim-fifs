@@ -5,7 +5,7 @@ let g:loaded_fifs = 1
 
 if !has('g:fifs_cmd')
   if executable('ack')
-    let g:fifs_cmd = 'ack --column --nocolor'
+    let g:fifs_cmd = 'ack --column -s -H --nopager --nocolor --nogroup'
   elseif executable('ag')
     let g:fifs_cmd = 'ag --nogroup --column --line-numbers'
   elseif executable('grep')
