@@ -5,11 +5,15 @@ let g:loaded_fifs = 1
 
 if !has('g:fifs_cmd')
   if executable('ack')
-    let g:fifs_cmd = 'ack --column -s -H --nopager --nocolor --nogroup'
+    let g:fifs_cmd = 'ack --column -s -H --nopager --nocolor --nogroup "%s"'
   elseif executable('ag')
-    let g:fifs_cmd = 'ag --nogroup --noheading --column --line-numbers'
+    let g:fifs_cmd = 'ag --nogroup --noheading --column --line-numbers "%s"'
   elseif executable('grep')
-    let g:fifs_cmd = 'grep --color=never -inr . -e'
+    let g:fifs_cmd = 'grep --color=never -inr . -e "%s"'
+  elseif executable('findstr')
+    let g:fifs_cmd = 'findstr /NS "%s" *'
+  else
+    finish
   endif
 endif
 

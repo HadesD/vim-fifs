@@ -9,9 +9,9 @@ function! fifs#doFind(cmd, pattern)
   endif
 
   if v:version >= 800
-    execute printf('AsyncRun %s "%s"', a:cmd, l:pattern)
+    execute 'AsyncRun ' . printf(a:cmd, l:pattern)
   else
-    execute printf('Dispatch %s "%s"', a:cmd, l:pattern)
+    execute 'Dispatch ' . printf(a:cmd, l:pattern)
   endif
   execute 'botright copen'
 
