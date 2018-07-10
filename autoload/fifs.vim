@@ -1,3 +1,15 @@
+if exists('g:autoloaded_vim_fifs')
+  finish
+endif
+let g:autoloaded_vim_fifs = 1
+
+let s:async_cmd = 'AsyncRun'
+" if has('unix')
+"   let s:shell = 'sh'
+" elseif has('win32')
+"   let s:shell = 'cmd'
+" endif
+
 function! fifs#doFind(cmd, pattern)
   let l:pattern = a:pattern
   if empty(l:pattern)
@@ -8,11 +20,14 @@ function! fifs#doFind(cmd, pattern)
     return
   endif
 
-  if v:version >= 800
-    execute 'AsyncRun ' . printf(a:cmd, l:pattern)
-  else
-    execute 'Dispatch ' . printf(a:cmd, l:pattern)
-  endif
+  let l:cmd = printf(a:cmd, l:pattern)
+
+  " if exists('s:shell')
+    " let jobid = async#job#start([s:shell, '-c', l:cmd], {})
+  " else
+    silent exe s:async_cmd l:cmd
+  " endif
+
   execute 'botright copen'
 
   " Mapping
